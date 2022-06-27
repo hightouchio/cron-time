@@ -59,10 +59,11 @@ export default {
     if (typeof day === "number") return day;
     day = day.trim().toLowerCase();
 
-    if (!DaysDictionary.hasOwnProperty(day))
-      throw Error(`Day: "${day}" is not a valid day.`);
+    const value = DaysDictionary[day];
 
-    return DaysDictionary[day];
+    if (!value) throw Error(`Day: "${day}" is not a valid day.`);
+
+    return value;
   },
 
   /**
